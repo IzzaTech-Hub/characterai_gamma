@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:io';
 
 import 'package:character_ai_gamma/app/data/firbase_charecters.dart';
@@ -186,6 +187,28 @@ class AdminHomeCTL extends GetxController {
     } else {
       Get.snackbar(
           'Error', 'Please select an image and fill in the required fields.');
+    }
+  }
+
+  Future<void> uploadJsonStringToFirestore(String jsonString) async {
+    try {
+      // Decode the JSON string into a Map
+      Map<String, dynamic> jsonData = jsonDecode(jsonString);
+
+      // Reference to the categories collection
+      final categoriesRef = FirebaseFirestore.instance
+          .collection(APPConstants.CharecterCollection)
+          .doc(APPConstants.CatagoriesCollection)
+          .collection('categories');
+
+      // Iterate over each category and upload the data
+      for (var entry in jsonData.entries) {
+        await categoriesRef.doc(entry.key).set(entry.value);
+      }
+
+      print('JSON data has been uploaded successfully to Firestore.');
+    } catch (e) {
+      print('An error occurred while uploading JSON data: $e');
     }
   }
 }

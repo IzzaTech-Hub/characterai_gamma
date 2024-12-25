@@ -1,4 +1,4 @@
-package com.example.character_ai_gamma
+package app.character.roleplay.ai.friend
 
 import io.flutter.embedding.android.FlutterActivity
 

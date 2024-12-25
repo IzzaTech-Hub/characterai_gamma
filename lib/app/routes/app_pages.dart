@@ -1,6 +1,7 @@
 import 'package:character_ai_gamma/app/modules/Admin/admin_character/bindings/admin_char_editbinding.dart';
 import 'package:character_ai_gamma/app/modules/Admin/admin_character/views/admin_charecter_editview.dart';
 import 'package:character_ai_gamma/app/modules/new_gems_screen/new_gems_view.dart';
+import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
 
 import '../modules/Admin/admin_character/bindings/admin_character_binding.dart';
@@ -35,6 +36,8 @@ class AppPages {
 
   static const INITIAL = Routes.SplashScreen; //? For User Build
   // static const INITIAL = Routes.AdminHomeView; //? For Admin Build
+  // static const INITIAL =
+  //     kDebugMode ? Routes.AdminHomeView : Routes.SplashScreen; //
 
   static final routes = [
     GetPage(

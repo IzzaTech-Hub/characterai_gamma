@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:character_ai_gamma/app/data/tempJsonChar.dart';
 import 'package:character_ai_gamma/app/modules/Admin/controller/admin_home_ctl.dart';
 import 'package:character_ai_gamma/app/routes/app_pages.dart';
 import 'package:character_ai_gamma/app/utills/app_const.dart';
@@ -102,6 +103,18 @@ class AdminHomeView extends GetView<AdminHomeCTL> {
                 child: Obx(() =>
                     Text(controller.loading ? 'Uploading...' : 'Upload Data')),
               ),
+
+              // ElevatedButton(
+              //   onPressed: () {
+              //     // if (controller.imageEnabled.value) {
+              //     //   controller.uploadData();
+              //     // } else {
+              //     //   controller.uploadWithImageLink();
+              //     // }
+              //     controller.uploadJsonStringToFirestore(jsonCharacToUpload);
+              //   },
+              //   child: Text("Upload All Charecters"),
+              // ),
             ],
           ),
         ),

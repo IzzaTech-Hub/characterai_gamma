@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "601471141084",
+    "project_id": "characterai-gamma",
+    "storage_bucket": "characterai-gamma.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:601471141084:android:031f48e68831ee5a692019",
+        "android_client_info": {
+          "package_name": "app.character.roleplay.ai.friend"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAOpIyswZgsvnBqXALw8Xq8ivXI-sENkUo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

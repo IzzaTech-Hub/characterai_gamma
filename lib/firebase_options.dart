@@ -25,15 +25,9 @@ class DefaultFirebaseOptions {
       case TargetPlatform.iOS:
         return ios;
       case TargetPlatform.macOS:
-        throw UnsupportedError(
-          'DefaultFirebaseOptions have not been configured for macos - '
-          'you can reconfigure this by running the FlutterFire CLI again.',
-        );
+        return macos;
       case TargetPlatform.windows:
-        throw UnsupportedError(
-          'DefaultFirebaseOptions have not been configured for windows - '
-          'you can reconfigure this by running the FlutterFire CLI again.',
-        );
+        return windows;
       case TargetPlatform.linux:
         throw UnsupportedError(
           'DefaultFirebaseOptions have not been configured for linux - '
@@ -47,29 +41,49 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyCDreFmcu4G1QwZzJKbL3rXcEhXUZuOjbY',
-    appId: '1:592235860085:web:f60358e661440b8ca3683c',
-    messagingSenderId: '592235860085',
-    projectId: 'charecter-ai',
-    authDomain: 'charecter-ai.firebaseapp.com',
-    storageBucket: 'charecter-ai.appspot.com',
-    measurementId: 'G-J6E0LRG3XV',
+    apiKey: 'AIzaSyAupalWZvj8xvCj3hVX9xhm9oW9i4Zy4EM',
+    appId: '1:601471141084:web:5e0502bf4e8f3f75692019',
+    messagingSenderId: '601471141084',
+    projectId: 'characterai-gamma',
+    authDomain: 'characterai-gamma.firebaseapp.com',
+    storageBucket: 'characterai-gamma.firebasestorage.app',
+    measurementId: 'G-HSVJTTS9V3',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyB2ptxilHSMTPH1WOe4KVnmW3i0dUpVcPA',
-    appId: '1:592235860085:android:9ec4b4afc7322745a3683c',
-    messagingSenderId: '592235860085',
-    projectId: 'charecter-ai',
-    storageBucket: 'charecter-ai.appspot.com',
+    apiKey: 'AIzaSyAOpIyswZgsvnBqXALw8Xq8ivXI-sENkUo',
+    appId: '1:601471141084:android:031f48e68831ee5a692019',
+    messagingSenderId: '601471141084',
+    projectId: 'characterai-gamma',
+    storageBucket: 'characterai-gamma.firebasestorage.app',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyDykGhUXaKRU2R2tqyaBtWgPVA4Tlbu9v0',
-    appId: '1:592235860085:ios:4043f17ce8d39f8da3683c',
-    messagingSenderId: '592235860085',
-    projectId: 'charecter-ai',
-    storageBucket: 'charecter-ai.appspot.com',
-    iosBundleId: 'character.avatar.ai.app.novax',
+    apiKey: 'AIzaSyBKk5uuEAl70ijsr-lPV-2j7f5kyyImnjg',
+    appId: '1:601471141084:ios:304ca23d8f0bfba7692019',
+    messagingSenderId: '601471141084',
+    projectId: 'characterai-gamma',
+    storageBucket: 'characterai-gamma.firebasestorage.app',
+    iosBundleId: 'app.character.roleplay.ai.friend',
   );
+
+  static const FirebaseOptions macos = FirebaseOptions(
+    apiKey: 'AIzaSyBKk5uuEAl70ijsr-lPV-2j7f5kyyImnjg',
+    appId: '1:601471141084:ios:1ad941db715e21f2692019',
+    messagingSenderId: '601471141084',
+    projectId: 'characterai-gamma',
+    storageBucket: 'characterai-gamma.firebasestorage.app',
+    iosBundleId: 'com.example.characterAiGamma',
+  );
+
+  static const FirebaseOptions windows = FirebaseOptions(
+    apiKey: 'AIzaSyAupalWZvj8xvCj3hVX9xhm9oW9i4Zy4EM',
+    appId: '1:601471141084:web:dfea3e6e39591595692019',
+    messagingSenderId: '601471141084',
+    projectId: 'characterai-gamma',
+    authDomain: 'characterai-gamma.firebaseapp.com',
+    storageBucket: 'characterai-gamma.firebasestorage.app',
+    measurementId: 'G-SRZK43579E',
+  );
+
 }

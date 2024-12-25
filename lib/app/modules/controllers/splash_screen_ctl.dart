@@ -127,7 +127,7 @@ class SplashController extends GetxController {
 
       print("Is First Time from Init: $isFirstTime");
       if (isFirstTime) {
-        Get.offNamed(Routes.INTRO_SCREENS);
+        Get.offNamed(Routes.NavView);
       } else {
         Get.offNamed(Routes.NavView);
       }

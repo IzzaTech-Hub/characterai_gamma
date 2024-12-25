@@ -216,7 +216,8 @@ class CreateAvatar extends GetView<CreateAvatarCTL> {
             decoration: BoxDecoration(
                 boxShadow: [
                   BoxShadow(
-                    color: Color(0xFF00DADD), // Shadow color
+                    // color: Color(0xFF00DADD), // Shadow color
+                    color: Colors.indigo, // Shadow color
                     spreadRadius: 0, // Spread radius
                     blurRadius: 10, // Blur radius
                     offset: Offset(0, 2), // Offset in x and y direction
@@ -225,7 +226,7 @@ class CreateAvatar extends GetView<CreateAvatarCTL> {
                 borderRadius:
                     BorderRadius.circular(SizeConfig.blockSizeHorizontal * 10),
                 color: AppColors.ScaffoldColor,
-                border: Border.all(color: Color(0xFF00DADD))
+                border: Border.all(color: Colors.indigo)
 
                 // gradient: LinearGradient(colors: [
                 //   Color(0xFF00DADD),

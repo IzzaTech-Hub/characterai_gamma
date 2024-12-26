@@ -56,14 +56,14 @@ class SplashScreen extends GetView<SplashController> {
                   Padding(
                     padding:
                         EdgeInsets.only(top: SizeConfig.blockSizeVertical * 15),
-                    child: Text("Character AI",
+                    child: Text("RolePlay Friend AI",
                         style: TextStyle(
                             color: Colors.white,
                             fontSize: SizeConfig.blockSizeHorizontal * 6,
                             fontWeight: FontWeight.bold)),
                   ),
                   verticalSpace(SizeConfig.blockSizeVertical * 1),
-                  Text("Chat with your favorite Avatar",
+                  Text("Your favorite, your adventure!",
                       style: TextStyle(
                           color: Colors.white,
                           fontSize: SizeConfig.blockSizeHorizontal * 4,

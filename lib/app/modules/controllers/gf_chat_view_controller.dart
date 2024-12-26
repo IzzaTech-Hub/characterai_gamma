@@ -391,8 +391,8 @@ class GfChatViewController extends GetxController
       HomeViewCTL homeController = Get.find();
       saveMessage(message, "User", gender_title.value,
           homeController.uniqueId ?? "1234");
-      saveHighPriorityMessage(message, "User", gender_title.value,
-          homeController.uniqueId ?? "1234");
+      // saveHighPriorityMessage(message, "User", gender_title.value,
+      //     homeController.uniqueId ?? "1234");
       saveLocalDBMessage(
           message: message, userType: "user", aiChatModel: myAIChatModel);
       // userMessages.add(message);

@@ -375,6 +375,7 @@ class HomeView extends GetView<HomeViewCTL> {
 
   Column _IndividualCatagoriesItemView(String name, FirebaseCatagory category) {
     category.characters = category.characters.reversed.toList();
+    category.characters.removeWhere((item) => item.isActive == false);
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [

@@ -262,23 +262,23 @@ class GfChatView extends GetView<GfChatViewController> {
                           ),
                         )),
                   ),
-                  Obx(() => GestureDetector(
-                        onTap: () {
-                          if (controller.firebaseCharecter != null) {
-                            if (controller.isLoved.isFalse) {
-                              controller.increaseLovedBy(
-                                  controller.firebaseCharecter!);
-                            }
-                          }
-                        },
-                        child: Icon(
-                          controller.isLoved.value
-                              ? Icons.favorite
-                              : Icons.favorite_outline,
-                          color: Colors.pink,
-                          size: 20,
-                        ),
-                      )),
+                  // Obx(() => GestureDetector(
+                  //       onTap: () {
+                  //         if (controller.firebaseCharecter != null) {
+                  //           if (controller.isLoved.isFalse) {
+                  //             controller.increaseLovedBy(
+                  //                 controller.firebaseCharecter!);
+                  //           }
+                  //         }
+                  //       },
+                  //       child: Icon(
+                  //         controller.isLoved.value
+                  //             ? Icons.favorite
+                  //             : Icons.favorite_outline,
+                  //         color: Colors.pink,
+                  //         size: 20,
+                  //       ),
+                  //     )),
                   horizontalSpace(SizeConfig.blockSizeHorizontal * 1.5),
                   Obx(() => GestureDetector(
                         onTap: () {

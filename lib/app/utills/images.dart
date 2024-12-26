@@ -42,15 +42,19 @@ class AppImages {
   static const gems_background = "assets/images/gems_background.png";
   static const new_gems = "assets/images/new_gems.png";
   static const settings = "assets/images/setting.png";
-  static const back_circle = "assets/images/back_circle.png";
-  static const back_arrow = "assets/images/ep_left_arrow.png";
-  static const forward_arrow = "assets/images/ep_right_arrow.png";
-  static const arrow_right = "assets/images/arrow_right_back.png";
-  static const arrow_left = "assets/images/arrow_left_back.png";
+  // static const back_circle = "assets/images/back_circle.png";
+  // static const back_arrow = "assets/images/ep_left_arrow.png";
+  // static const forward_arrow = "assets/images/ep_right_arrow.png";
+  // static const arrow_right = "assets/images/arrow_right_back.png";
+  // static const arrow_left = "assets/images/arrow_left_back.png";
   static const splash = "assets/images/splash.png";
   static const camera = "assets/images/camera.png";
   static const gallery = "assets/images/gallery.png";
   static const no_character = "assets/images/no_character.png";
   static const homeIC = "assets/icons/home.png";
   static const feedback = "assets/icons/feedback.png";
+
+  // Main Icon
+
+  static const main_icon = "assets/icons/main_icon.png";
 }

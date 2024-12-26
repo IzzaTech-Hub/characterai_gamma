@@ -14,24 +14,25 @@ class FirebaseCharecter {
   int? star5;
   int? chatters;
   int? lovedBy;
+  bool? isActive;
 
-  FirebaseCharecter({
-    required this.title,
-    required this.description,
-    required this.firstMessage,
-    required this.intro,
-    required this.category,
-    required this.imageUrl,
-    this.priority = 100,
-    required this.historyMessages,
-    this.star1,
-    this.star2,
-    this.star3,
-    this.star4,
-    this.star5,
-    this.chatters,
-    this.lovedBy,
-  });
+  FirebaseCharecter(
+      {required this.title,
+      required this.description,
+      required this.firstMessage,
+      required this.intro,
+      required this.category,
+      required this.imageUrl,
+      this.priority = 100,
+      required this.historyMessages,
+      this.star1,
+      this.star2,
+      this.star3,
+      this.star4,
+      this.star5,
+      this.chatters,
+      this.lovedBy,
+      this.isActive});
 
   // Convert the model to a Map for Firebase
   Map<String, dynamic> toJson() => {
@@ -50,6 +51,7 @@ class FirebaseCharecter {
         'star5': star5 ?? 0,
         'chatters': chatters ?? 0,
         'lovedBy': lovedBy ?? 0,
+        'isActive': isActive ?? true,
       };
 
   // Create a FirebaseCharecter from a Map
@@ -70,5 +72,6 @@ class FirebaseCharecter {
         star5: json['star5'] ?? 100276,
         chatters: json['chatters'] ?? 0,
         lovedBy: json['lovedBy'] ?? 0,
+        isActive: json['isActive'] ?? true,
       );
 }

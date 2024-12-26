@@ -1,4 +1,3 @@
-
 import 'package:character_ai_gamma/app/modules/controllers/splash_screen_ctl.dart';
 import 'package:character_ai_gamma/app/utills/colors.dart';
 import 'package:flutter/material.dart';
@@ -27,11 +26,16 @@ class SplashScreen extends GetView<SplashController> {
               padding: EdgeInsets.only(
                   top: SizeConfig.blockSizeVertical * 20,
                   left: SizeConfig.blockSizeHorizontal * 19),
-              child: Image.asset(
-                AppImages.splash,
-                width: SizeConfig.blockSizeHorizontal * 60,
-                height: SizeConfig.blockSizeVertical * 30,
-                // fit: BoxFit.cover,
+              child: ClipRRect(
+                borderRadius:
+                    BorderRadius.circular(SizeConfig.blockSizeHorizontal * 4),
+                child: Image.asset(
+                  AppImages.main_icon,
+                  width: SizeConfig.blockSizeHorizontal * 60,
+                  // height: SizeConfig.blockSizeVertical * 30,
+
+                  // fit: BoxFit.cover,
+                ),
               ),
             ),
             // Opacity(

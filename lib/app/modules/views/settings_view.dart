@@ -16,17 +16,17 @@ class SettingsView extends GetView<SettingsCTL> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          // leading: GestureDetector(
-          //   onTap: () {
-          //     AppLovinProvider.instance.showInterstitial(() {});
-          //     Get.back();
-          //   },
-          //   child: Icon(
-          //     Icons.arrow_back,
-          //     color: Colors.white,
-          //   ),
-          // ),
-          // centerTitle: true,
+          leading: GestureDetector(
+            onTap: () {
+              // AppLovinProvider.instance.showInterstitial(() {});
+              Get.back();
+            },
+            child: Icon(
+              Icons.arrow_back_ios_new_rounded,
+              color: Colors.white,
+            ),
+          ),
+          centerTitle: true,
           title: Text(
             "Settings",
             style: TextStyle(

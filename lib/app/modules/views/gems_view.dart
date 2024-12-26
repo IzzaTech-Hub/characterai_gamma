@@ -43,7 +43,7 @@ class GemsView extends GetView<GemsViewController> {
                 Get.back();
               },
               child: Icon(
-                Icons.arrow_back,
+                Icons.arrow_back_ios_new_rounded,
                 color: Colors.white,
               ),
             )
@@ -207,7 +207,7 @@ class GemsView extends GetView<GemsViewController> {
             height: SizeConfig.screenHeight * 0.06,
             decoration: BoxDecoration(
               border: Border.all(
-                color: Color(0xEEF37B38), // Set the border color here
+                color: Colors.indigo, // Set the border color here
                 width: 2.0, // Set the border width here
               ),
               borderRadius: BorderRadius.circular(40.0),
@@ -236,7 +236,7 @@ class GemsView extends GetView<GemsViewController> {
             height: SizeConfig.screenHeight * 0.06,
             decoration: BoxDecoration(
               border: Border.all(
-                color: Color(0xEEF37B38), // Set the border color here
+                color: Colors.indigo, // Set the border color here
                 width: 2.0, // Set the border width here
               ),
               borderRadius: BorderRadius.circular(40.0),

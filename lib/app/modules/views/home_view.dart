@@ -66,11 +66,9 @@ class HomeView extends GetView<HomeViewCTL> {
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
                               GestureDetector(
-                                // ? Commented by jamal start
                                 onTap: () {
                                   Get.toNamed(Routes.GemsView);
                                 },
-                                // ? Commented by jamal end
                                 child: Container(
                                   decoration: BoxDecoration(
                                     color: AppColors.bottomNavColor,
@@ -115,6 +113,20 @@ class HomeView extends GetView<HomeViewCTL> {
                             ],
                           ),
                         ),
+
+                  Padding(
+                    padding: EdgeInsets.only(
+                        right: SizeConfig.blockSizeHorizontal * 1),
+                    child: GestureDetector(
+                      onTap: () {
+                        Get.toNamed(Routes.SettingsView);
+                      },
+                      child: Image.asset(
+                        AppImages.settings,
+                        height: SizeConfig.blockSizeVertical * 4.5,
+                      ),
+                    ),
+                  )
                 ],
               ),
               SizedBox(
@@ -472,37 +484,38 @@ class HomeView extends GetView<HomeViewCTL> {
                         ),
                       )
                     : Container(),
-                Align(
-                  alignment: Alignment.bottomRight,
-                  child: Container(
-                    width: SizeConfig.blockSizeHorizontal * 16,
-                    decoration: BoxDecoration(
-                      color: AppColors.terndingBoxColor,
-                      borderRadius: BorderRadius.circular(
-                          SizeConfig.blockSizeHorizontal * 4),
-                    ),
-                    margin: EdgeInsets.only(
-                        right: SizeConfig.blockSizeHorizontal * 5,
-                        bottom: SizeConfig.blockSizeVertical * 0.8),
-                    padding: EdgeInsets.all(SizeConfig.blockSizeVertical * 0.8),
-                    child: Row(
-                      children: [
-                        Icon(
-                          Icons.favorite,
-                          size: SizeConfig.blockSizeHorizontal * 3.5,
-                        ),
-                        horizontalSpace(SizeConfig.blockSizeHorizontal),
-                        Text(
-                          controller.formateNumberShort(lovedBy),
-                          style: TextStyle(
-                              color: AppColors.white_color,
-                              fontSize: 9,
-                              fontWeight: FontWeight.w500),
-                        ),
-                      ],
-                    ),
-                  ),
-                )
+                // // // []Commented by jamal start![] // // //
+                // Align(
+                //   alignment: Alignment.bottomRight,
+                //   child: Container(
+                //     width: SizeConfig.blockSizeHorizontal * 16,
+                //     decoration: BoxDecoration(
+                //       color: AppColors.terndingBoxColor,
+                //       borderRadius: BorderRadius.circular(
+                //           SizeConfig.blockSizeHorizontal * 4),
+                //     ),
+                //     margin: EdgeInsets.only(
+                //         right: SizeConfig.blockSizeHorizontal * 5,
+                //         bottom: SizeConfig.blockSizeVertical * 0.8),
+                //     padding: EdgeInsets.all(SizeConfig.blockSizeVertical * 0.8),
+                //     child: Row(
+                //       children: [
+                //         Icon(
+                //           Icons.favorite,
+                //           size: SizeConfig.blockSizeHorizontal * 3.5,
+                //         ),
+                //         horizontalSpace(SizeConfig.blockSizeHorizontal),
+                //         Text(
+                //           controller.formateNumberShort(lovedBy),
+                //           style: TextStyle(
+                //               color: AppColors.white_color,
+                //               fontSize: 9,
+                //               fontWeight: FontWeight.w500),
+                //         ),
+                //       ],
+                //     ),
+                //   ),
+                // )
               ],
             ),
           ),

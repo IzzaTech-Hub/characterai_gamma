@@ -7,7 +7,9 @@ import 'package:character_ai_gamma/app/data/ai_model.dart';
 import 'package:character_ai_gamma/app/data/firbase_charecters.dart';
 import 'package:character_ai_gamma/app/data/firebase_categories.dart';
 import 'package:character_ai_gamma/app/modules/controllers/home_view_ctl.dart';
+import 'package:character_ai_gamma/app/modules/views/nointernet_widget.dart';
 import 'package:character_ai_gamma/app/provider/applovin_ads_provider.dart';
+import 'package:character_ai_gamma/app/provider/connectivity_provider.dart';
 import 'package:character_ai_gamma/app/provider/meta_ads_provider.dart';
 import 'package:character_ai_gamma/app/routes/app_pages.dart';
 import 'package:character_ai_gamma/app/utills/colors.dart';
@@ -20,12 +22,14 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:get/get.dart';
+import 'package:provider/provider.dart';
 
 class HomeView extends GetView<HomeViewCTL> {
   HomeView({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final isConnected = context.watch<ConnectivityProvider>().isConnected;
     SizeConfig().init(context);
     return Scaffold(
       // backgroundColor: AppColors.ScaffoldColor,
@@ -129,125 +133,135 @@ class HomeView extends GetView<HomeViewCTL> {
                   )
                 ],
               ),
-              SizedBox(
-                height: SizeConfig.screenHeight * 0.02,
-              ),
-              StreamBuilder<QuerySnapshot>(
-                  stream: controller.categoriesStream,
-                  builder: (context, snapshot) {
-                    if (snapshot.hasError) {
-                      return Center(child: Text('Error fetching categories'));
-                    }
+              isConnected
+                  ? StreamBuilder<QuerySnapshot>(
+                      stream: controller.categoriesStream,
+                      builder: (context, snapshot) {
+                        if (snapshot.hasError) {
+                          return Center(
+                              child: Text('Error fetching categories'));
+                        }
 
-                    if (snapshot.connectionState == ConnectionState.waiting) {
-                      return Center(child: CircularProgressIndicator());
-                    }
+                        if (snapshot.connectionState ==
+                            ConnectionState.waiting) {
+                          return Center(child: CircularProgressIndicator());
+                        }
 
-                    final newCategory = snapshot.data!.docs
-                        .where((doc) => doc.id == "New")
-                        .first;
+                        final newCategory = snapshot.data!.docs
+                            .where((doc) => doc.id == "New")
+                            .first;
 
-                    List<FirebaseCatagory> otherCategoriesList = snapshot
-                        .data!.docs
-                        .map((doc) => FirebaseCatagory.fromJson(
-                            doc.data() as Map<String, dynamic>, doc.id))
-                        .toList();
+                        List<FirebaseCatagory> otherCategoriesList = snapshot
+                            .data!.docs
+                            .map((doc) => FirebaseCatagory.fromJson(
+                                doc.data() as Map<String, dynamic>, doc.id))
+                            .toList();
 
-                    otherCategoriesList
-                        .sort(((a, b) => a.priority - b.priority));
+                        otherCategoriesList
+                            .sort(((a, b) => a.priority - b.priority));
 
-                    return Expanded(
-                      child: Column(
-                        children: [
-                          Obx(() => Container(
-                                // height: SizeConfig.blockSizeVertical * 20,
-                                child: SingleChildScrollView(
-                                  scrollDirection: Axis.horizontal,
-                                  child: Wrap(
-                                    // scrollDirection: Axis.horizontal,
-                                    spacing:
-                                        8.0, // Adjust spacing between chips
-                                    children: [
-                                      ChoiceChip(
-                                        showCheckmark: false,
-                                        selectedColor: Colors.white,
-                                        labelStyle: controller
+                        return Expanded(
+                          child: Column(
+                            children: [
+                              Obx(() => Container(
+                                    // height: SizeConfig.blockSizeVertical * 20,
+                                    child: SingleChildScrollView(
+                                      scrollDirection: Axis.horizontal,
+                                      child: Wrap(
+                                        // scrollDirection: Axis.horizontal,
+                                        spacing:
+                                            8.0, // Adjust spacing between chips
+                                        children: [
+                                          ChoiceChip(
+                                            showCheckmark: false,
+                                            selectedColor: Colors.white,
+                                            labelStyle: controller
+                                                        .selectedCategory
+                                                        .value ==
+                                                    'All'
+                                                ? TextStyle(color: Colors.black)
+                                                : TextStyle(
+                                                    color: Colors.white),
+                                            backgroundColor:
+                                                AppColors.bottomNavColor,
+                                            // disabledColor: Colors.green,
+                                            label: Text('All'),
+                                            selected: controller
                                                     .selectedCategory.value ==
-                                                'All'
-                                            ? TextStyle(color: Colors.black)
-                                            : TextStyle(color: Colors.white),
-                                        backgroundColor:
-                                            AppColors.bottomNavColor,
-                                        // disabledColor: Colors.green,
-                                        label: Text('All'),
-                                        selected:
-                                            controller.selectedCategory.value ==
                                                 "All", // Initially select "All"
-                                        onSelected: (selected) {
-                                          controller.selectedCategory.value =
-                                              "All";
+                                            onSelected: (selected) {
+                                              controller.selectedCategory
+                                                  .value = "All";
 
-                                          // Show all categories view
-                                        },
-                                      ),
-                                      for (final category
-                                          in otherCategoriesList)
-                                        ChoiceChip(
-                                          showCheckmark: false,
-                                          selectedColor: Colors.white,
-                                          labelStyle: controller
+                                              // Show all categories view
+                                            },
+                                          ),
+                                          for (final category
+                                              in otherCategoriesList)
+                                            ChoiceChip(
+                                              showCheckmark: false,
+                                              selectedColor: Colors.white,
+                                              labelStyle: controller
+                                                          .selectedCategory
+                                                          .value ==
+                                                      category.id
+                                                  ? TextStyle(
+                                                      color: Colors.black)
+                                                  : TextStyle(
+                                                      color: Colors.white),
+                                              backgroundColor:
+                                                  AppColors.bottomNavColor,
+                                              // disabledColor: Colors.green,
+                                              label: Text(category.id),
+                                              selected: controller
                                                       .selectedCategory.value ==
-                                                  category.id
-                                              ? TextStyle(color: Colors.black)
-                                              : TextStyle(color: Colors.white),
-                                          backgroundColor:
-                                              AppColors.bottomNavColor,
-                                          // disabledColor: Colors.green,
-                                          label: Text(category.id),
-                                          selected: controller
-                                                  .selectedCategory.value ==
-                                              category.id,
-                                          onSelected: (selected) {
-                                            controller.selectedCategory.value =
-                                                selected ? category.id : "All";
+                                                  category.id,
+                                              onSelected: (selected) {
+                                                controller.selectedCategory
+                                                        .value =
+                                                    selected
+                                                        ? category.id
+                                                        : "All";
 
-                                            controller
-                                                    .FBselectedCatagory.value =
-                                                otherCategoriesList
-                                                    .where((element) =>
-                                                        element.id ==
-                                                        controller
-                                                            .selectedCategory
-                                                            .value)
-                                                    .first;
-                                            // Navigate to individual category view
-                                            // Navigator.pushNamed(
-                                            //     context, '/individualCategory',
-                                            //     arguments: category);
-                                          },
-                                        ),
-                                    ],
-                                  ),
-                                ),
-                              )),
-                          verticalSpace(SizeConfig.blockSizeVertical),
-                          Obx(() => Expanded(
-                                child: controller.selectedCategory.value ==
-                                        "All"
-                                    ? _allCategoriesViews(otherCategoriesList)
-                                    : _IndividualCatagoriesItemView(
-                                        controller.selectedCategory.value,
-                                        controller.FBselectedCatagory
-                                            .value), // Display appropriate view
-                              )),
-                        ],
-                      ),
-                    );
+                                                controller.FBselectedCatagory
+                                                        .value =
+                                                    otherCategoriesList
+                                                        .where((element) =>
+                                                            element.id ==
+                                                            controller
+                                                                .selectedCategory
+                                                                .value)
+                                                        .first;
+                                                // Navigate to individual category view
+                                                // Navigator.pushNamed(
+                                                //     context, '/individualCategory',
+                                                //     arguments: category);
+                                              },
+                                            ),
+                                        ],
+                                      ),
+                                    ),
+                                  )),
+                              verticalSpace(SizeConfig.blockSizeVertical),
+                              Obx(() => Expanded(
+                                    child: controller.selectedCategory.value ==
+                                            "All"
+                                        ? _allCategoriesViews(
+                                            otherCategoriesList)
+                                        : _IndividualCatagoriesItemView(
+                                            controller.selectedCategory.value,
+                                            controller.FBselectedCatagory
+                                                .value), // Display appropriate view
+                                  )),
+                            ],
+                          ),
+                        );
 
-                    //     Expanded(
-                    //   child: _allCategoriesViews(otherCategoriesList),
-                    // );
-                  }),
+                        //     Expanded(
+                        //   child: _allCategoriesViews(otherCategoriesList),
+                        // );
+                      })
+                  : NoInternetWidget(),
             ],
           ),
         ),

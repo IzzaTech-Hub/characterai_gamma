@@ -36,9 +36,9 @@ class AppLovinProvider {
   RxBool isAdsEnabled = true.obs;
 
   void init() {
-    // if (kReleaseMode) {
-    initializePlugin();
-    // }
+    if (kReleaseMode) {
+      initializePlugin();
+    }
 
     // if (Platform.isIOS) {
     //   isAdsEnabled.value = false;

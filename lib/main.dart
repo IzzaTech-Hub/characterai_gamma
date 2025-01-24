@@ -1,4 +1,5 @@
 import 'dart:ui';
+import 'package:character_ai_gamma/app/provider/connectivity_provider.dart';
 import 'package:character_ai_gamma/app/routes/app_pages.dart';
 import 'package:character_ai_gamma/app/services/remoteconfig_services.dart';
 import 'package:character_ai_gamma/app/utills/colors.dart';
@@ -13,6 +14,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 
 import 'package:get/get.dart';
+import 'package:provider/provider.dart';
 
 Future<void> main() async {
   // Gemini.init(
@@ -100,26 +102,29 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     observer.analytics.setAnalyticsCollectionEnabled(kReleaseMode);
-    return GetMaterialApp(
-      builder: EasyLoading.init(),
-      // themeMode: ThemeMode.dark,
-      navigatorObservers: <NavigatorObserver>[observer],
-      theme: ThemeData(
-        // brightness: Brightness.dark,
-        scaffoldBackgroundColor: AppColors.ScaffoldColor,
-        appBarTheme: AppBarTheme(color: AppColors.ScaffoldColor),
-        colorScheme: ColorScheme.dark(
-            background: Colors.grey.shade900,
-            primary: Colors.white,
-            secondary: Colors.grey.shade800,
-            tertiary: Colors.grey.shade600,
-            primaryContainer: Colors.grey.shade900,
-            shadow: Colors.transparent),
-        useMaterial3: true,
+    return ChangeNotifierProvider(
+      create: (_) => ConnectivityProvider(),
+      child: GetMaterialApp(
+        builder: EasyLoading.init(),
+        // themeMode: ThemeMode.dark,
+        navigatorObservers: <NavigatorObserver>[observer],
+        theme: ThemeData(
+          // brightness: Brightness.dark,
+          scaffoldBackgroundColor: AppColors.ScaffoldColor,
+          appBarTheme: AppBarTheme(color: AppColors.ScaffoldColor),
+          colorScheme: ColorScheme.dark(
+              background: Colors.grey.shade900,
+              primary: Colors.white,
+              secondary: Colors.grey.shade800,
+              tertiary: Colors.grey.shade600,
+              primaryContainer: Colors.grey.shade900,
+              shadow: Colors.transparent),
+          useMaterial3: true,
+        ),
+        debugShowCheckedModeBanner: false,
+        initialRoute: AppPages.INITIAL,
+        getPages: AppPages.routes,
       ),
-      debugShowCheckedModeBanner: false,
-      initialRoute: AppPages.INITIAL,
-      getPages: AppPages.routes,
     );
   }
 }

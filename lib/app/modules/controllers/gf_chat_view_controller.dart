@@ -440,16 +440,17 @@ class GfChatViewController extends GetxController
       // navCTL.saveGems(navCTL.gems.value);
       // homectl.decreaseGEMS(GEMS_RATE.NormalChat_GEMS_RATE);
     } else {
+      isWaitingForResponse.value = false;
       AwesomeDialog(
         context: context,
-        dialogBackgroundColor: AppColors.white_color,
+        // dialogBackgroundColor: AppColors.white_color,
         animType: AnimType.scale,
         dialogType: DialogType.noHeader,
         title: 'Please Check your Internet Connection!',
         titleTextStyle: TextStyle(color: AppColors.black_color, fontSize: 20),
         descTextStyle: TextStyle(color: AppColors.black_color, fontSize: 14),
-        desc:
-            'The Offline Mode Alert is a feature that notifies users of no internet connection. It helps maintain a smooth user experience by displaying a clear message and providing suggestions for reconnecting.',
+        // desc:
+        //     'The Offline Mode Alert is a feature that notifies users of no internet connection. It helps maintain a smooth user experience by displaying a clear message and providing suggestions for reconnecting.',
         // btnOkIcon: Icons.launch,
         body: Container(
             child: Column(

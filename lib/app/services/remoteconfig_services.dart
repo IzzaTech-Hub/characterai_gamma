@@ -54,6 +54,7 @@ class RemoteConfigService {
   Future SetRemoteConfig() async {
     RCVariables.GeminiAPIKey = remoteConfig.getString('GeminiProKey');
     RCVariables.extraInstruction = remoteConfig.getString('extraInstruction');
+    RCVariables.geminiModel = remoteConfig.getString('geminiModel');
 
     initGemini(RCVariables.GeminiAPIKey);
   }

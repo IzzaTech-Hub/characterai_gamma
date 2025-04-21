@@ -10,7 +10,7 @@ class SettingsCTL extends GetxController {
 
   ShareApp() {
     Share.share(
-        "Consider downloading this exceptional app, available on the Google Play Store at the following link: https://play.google.com/store/apps/details?id=character.avatar.ai.app.novax");
+        "Consider downloading this exceptional app, available on the Google Play Store at the following link: https://play.google.com/store/apps/details?id=app.character.roleplay.ai.friend");
   }
 
   @override

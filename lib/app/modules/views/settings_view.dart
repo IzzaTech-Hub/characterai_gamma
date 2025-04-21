@@ -75,7 +75,7 @@ class SettingsView extends GetView<SettingsCTL> {
           GestureDetector(
             onTap: () {
               LaunchReview.launch(
-                androidAppId: "character.avatar.ai.app.novax",
+                androidAppId: "app.character.roleplay.ai.friend",
               );
             },
             child: settings_btn(

@@ -24,7 +24,6 @@ import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
 import 'package:in_app_review/in_app_review.dart';
 import 'package:internet_connection_checker/internet_connection_checker.dart';
-import 'package:launch_review/launch_review.dart';
 
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:slide_rating_dialog/slide_rating_dialog.dart';

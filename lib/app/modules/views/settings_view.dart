@@ -6,7 +6,7 @@ import 'package:character_ai_gamma/app/utills/app_strings.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:launch_review/launch_review.dart';
+import 'package:in_app_review/in_app_review.dart';
 import '../../utills/size_config.dart';
 
 class SettingsView extends GetView<SettingsCTL> {
@@ -14,6 +14,8 @@ class SettingsView extends GetView<SettingsCTL> {
 
   @override
   Widget build(BuildContext context) {
+    final InAppReview inAppReview = InAppReview.instance;
+
     return Scaffold(
         appBar: AppBar(
           leading: GestureDetector(
@@ -74,9 +76,8 @@ class SettingsView extends GetView<SettingsCTL> {
           // ),
           GestureDetector(
             onTap: () {
-              LaunchReview.launch(
-                androidAppId: "app.character.roleplay.ai.friend",
-              );
+              inAppReview.openStoreListing(
+                  appStoreId: '...', microsoftStoreId: '...');
             },
             child: settings_btn(
                 "Rate us",

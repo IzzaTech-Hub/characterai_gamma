@@ -1,0 +1,2 @@
+C:/IzzaTechHub/characterai_gamma/android/app/.cxx/Debug/f6d2l1d1/x86/CMakeFiles/edit_cache.dir
+C:/IzzaTechHub/characterai_gamma/android/app/.cxx/Debug/f6d2l1d1/x86/CMakeFiles/rebuild_cache.dir

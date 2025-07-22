@@ -1,4 +1,5 @@
 import 'dart:ui';
+import 'package:api_key_pool/api_key_pool.dart';
 import 'package:character_ai_gamma/app/provider/connectivity_provider.dart';
 import 'package:character_ai_gamma/app/routes/app_pages.dart';
 import 'package:character_ai_gamma/app/services/remoteconfig_services.dart';
@@ -24,6 +25,7 @@ Future<void> main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+  await ApiKeyPool.init('Character Ai Gamma');
   RemoteConfigService().initialize();
 
   //? Push Notification Implementation
@@ -38,7 +40,7 @@ Future<void> main() async {
     provisional: false,
     sound: true,
   );
-  if (settings.authorizationStatus == AuthorizationStatus.authorized) {
+  if (settings.authorizationStatus == AuthorizationStatus.authorized) { 
     print('User granted permission');
   } else if (settings.authorizationStatus == AuthorizationStatus.provisional) {
     print('User granted provisional permission');

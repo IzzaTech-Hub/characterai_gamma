@@ -4,6 +4,7 @@ import 'dart:developer' as developer;
 import 'dart:math';
 
 // import 'package:chat_gpt_sdk/chat_gpt_sdk.dart';
+import 'package:api_key_pool/api_key_pool.dart';
 import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:character_ai_gamma/app/data/ai_model.dart';
 import 'package:character_ai_gamma/app/data/db_message.dart';
@@ -930,12 +931,12 @@ class GfChatViewController extends GetxController
   }
 
   void initalizeModel(List<Content> history, List<Content> dbHistory) {
-    final apiKey = RCVariables.GeminiAPIKey;
+    // final apiKey = RCVariables.GeminiAPIKey;
     final modelName = RCVariables.geminiModel;
     List<Content> actualHistory = [];
     _model = GenerativeModel(
       model: modelName,
-      apiKey: apiKey,
+      apiKey: ApiKeyPool.getKey(),
     );
 
     if (!dbHistory.isEmpty) {
